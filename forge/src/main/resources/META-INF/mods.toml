@@ -1,0 +1,36 @@
+modLoader = "javafml"
+loaderVersion = "[36,)"
+issueTrackerURL = "https://github.com/Example/${repo}/issues"
+license = "GPLv3"
+
+[[mods]]
+modId = "${id}"
+version = "${version}"
+displayName = "${name}"
+authors = "Example Author"
+credits = "Example Contributor"
+description = "This is an example starter template."
+displayURL = "https://example.com"
+#updateJSONURL = ""
+#logoFile = ""
+
+[[dependencies.${id}]]
+modId = "forge"
+mandatory = true
+versionRange = "[36,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${id}]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.16.5,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${id}]]
+modId = "pollen"
+mandatory = true
+versionRange = "[1.0.0,2.0)"
+ordering = "BEFORE"
+side = "BOTH"
