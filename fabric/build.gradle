@@ -1,11 +1,7 @@
 plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
     id "me.shedaniel.unified-publishing"
-}
-
-
-loom {
-    accessWidenerPath = project(":common").loom.accessWidenerPath
+    id "org.jetbrains.kotlin.jvm"
 }
 
 sourceSets.main.resources {
@@ -28,9 +24,25 @@ configurations {
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 }
+
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+    runs {
+        datagen {
+            server()
+            name "Minecraft Data"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+            runDir "build/datagen"
+        }
+    }
+}
+assemble.dependsOn runDatagen
+
 
 processResources {
     inputs.property "id", rootProject.mod_id
@@ -91,6 +103,8 @@ publishing {
         }
     }
 }
+
+compileKotlin.kotlinOptions.jvmTarget = "17"
 
 unifiedPublishing {
     project {
