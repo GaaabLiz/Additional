@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.example.examplemod.core.mixin.forge",
+  "package": "it.gabliz.additional.common.mixin",
   "compatibilityLevel": "JAVA_8",
   "minVersion": "0.8",
   "mixins": [
