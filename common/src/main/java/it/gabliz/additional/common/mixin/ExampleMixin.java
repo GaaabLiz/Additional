@@ -1,4 +1,4 @@
-package it.gabliz.additional.mixin;
+package it.gabliz.additional.common.mixin;
 
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;

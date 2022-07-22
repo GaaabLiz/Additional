@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "additional",
+  "id": "${id}",
   "version": "${version}",
-  "name": "Additional",
+  "name": "${name}",
   "description": "Mod Description",
   "authors": [
     "Gabliz"
@@ -19,14 +19,14 @@
     "main": [
       {
         "adapter": "kotlin",
-        "value": "it.gabliz.additional.Additional"
+        "value": "it.gabliz.additional.fabric.Additional"
       }
     ],
     "client": [
-      "it.gabliz.additional.client.AdditionalModClient"
+      "it.gabliz.additional.fabric.client.AdditionalModClient"
     ],
     "fabric-datagen": [
-      "it.gabliz.additional.datagen.Generator"
+      "it.gabliz.additional.fabric.datagen.Generator"
     ]
   },
   "mixins": [
