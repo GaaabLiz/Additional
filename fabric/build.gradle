@@ -21,12 +21,28 @@ configurations {
     developmentFabric.extendsFrom common
 }
 
+repositories {
+    mavenCentral()
+    maven {
+        url = "https://maven.fabricmc.net/"
+        content {includeGroup "net.fabricmc"}
+    }
+    maven { url = "https://maven.shedaniel.me" }
+    maven { url = "https://maven.parchmentmc.net/" }
+    maven { url = "https://maven.bai.lol" }
+}
+
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
     modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+    modCompileOnly "mcp.mobius.waila:wthit-api:fabric-${project.wthitVersion}"
+    modRuntimeOnly "mcp.mobius.waila:wthit:fabric-${project.wthitVersion}"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.reiVersion}"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.reiVersion}"
+
 }
 
 loom {
