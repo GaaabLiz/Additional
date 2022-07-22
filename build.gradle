@@ -9,12 +9,10 @@ plugins {
     id "io.github.juuxel.loom-quiltflower" version "$quilt_flower_version" apply false
     id "architectury-plugin" version "$architectury_plugin_version"
     id "me.shedaniel.unified-publishing" version "$unified_publishing_version" apply false
-    id "org.jetbrains.kotlin.jvm" version "$kotlin_version"
     id "maven-publish"
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+
 
 architectury {
     minecraft = rootProject.minecraft_version

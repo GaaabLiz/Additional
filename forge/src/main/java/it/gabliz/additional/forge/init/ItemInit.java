@@ -18,7 +18,7 @@ public class ItemInit {
 
     public static void registerAll(IEventBus eventBus) {
         Additional.LOGGER.debug("Registering mod items for ${ModConfig.MOD_NAME}...");
-        Map<Item, ModObjectInfo.Item> map = ModItems.Companion.getItemsList();
+        Map<Item, ModObjectInfo.Item> map = ModItems.itemsList;
         for (Map.Entry<Item, ModObjectInfo.Item> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "/" + entry.getValue());
             Item item = entry.getKey();

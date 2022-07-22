@@ -12,7 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-/*
+
 @Mod(ModConfig.MOD_ID)
 public class Additional {
     public static Logger LOGGER = LogUtils.getLogger();
@@ -21,8 +21,8 @@ public class Additional {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
-        ModItems.Companion.init();
-        ItemInit.registerAll(modEventBus);
+        //ModItems.Companion.init();
+        //ItemInit.registerAll(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -40,4 +40,3 @@ public class Additional {
         }
     }
 }
-*/

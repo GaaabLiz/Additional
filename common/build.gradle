@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm'
+    id "org.jetbrains.kotlin.jvm" version "$kotlin_version"
 }
 loom {
    accessWidenerPath.set(file("src/main/resources/${project.mod_id}.accesswidener"))
@@ -11,8 +11,11 @@ architectury {
 
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}")
 }
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 processResources {
     inputs.property "id", rootProject.mod_id
