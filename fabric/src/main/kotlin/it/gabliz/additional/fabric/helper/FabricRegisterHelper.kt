@@ -22,7 +22,7 @@ interface FabricRegisterHelper {
 
     interface Items {
         fun registerAll()
-        fun registerItem(item: Item, info : ModObjectInfo.Item)
+        fun registerItem(item: Item, info : ModObjectInfo.ItemInfo)
     }
 
     interface ItemGroups {

@@ -1,10 +1,9 @@
 package it.gabliz.additional.forge;
 
 import com.mojang.logging.LogUtils;
+import dev.architectury.platform.forge.EventBuses;
+import it.gabliz.additional.AdditionalCommon;
 import it.gabliz.additional.common.config.ModConfig;
-import it.gabliz.additional.common.init.ModItems;
-import it.gabliz.additional.forge.init.ItemInit;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,11 +17,12 @@ public class Additional {
     public static Logger LOGGER = LogUtils.getLogger();
 
     public Additional() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(this::commonSetup);
-        MinecraftForge.EVENT_BUS.register(this);
-        //ModItems.Companion.init();
-        //ItemInit.registerAll(modEventBus);
+        LOGGER.info("Start loading " + ModConfig.MOD_ID + " Mod ...");
+        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+        EventBuses.registerModEventBus(ModConfig.MOD_ID, modBus);
+        AdditionalCommon.init();
+        IEventBus bus = EventBuses.getModEventBus(ModConfig.MOD_ID).get();
+        bus.addListener(this::commonSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
