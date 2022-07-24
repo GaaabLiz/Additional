@@ -15,3 +15,5 @@ if (JavaVersion.current().ordinal() + 1 < 16) {
 rootProject.name = "additional"
 
 include("common", "fabric", "forge")
+include 'data'
+

@@ -10,6 +10,8 @@ public class ModTranslations {
 
     public static Map<String, String> translationBuffer = new HashMap<String, String>();
     public static final String ttItem = "item";
+    public static final String ttItemGroup = "itemGroup";
+    public static final String ttBlock = "block";
 
     public static String getDescKey(String type, String idName) {
         return type + "." + ModConfig.MOD_ID + "." + idName + ".desc";
@@ -50,6 +52,8 @@ public class ModTranslations {
     }
 
     public static void init() {
+        addNameTranslation(ttItemGroup, ModItemGroup.List.TAB_ITEM.idName, ModItemGroup.List.TAB_ITEM.name);
+        addNameTranslation(ttItemGroup, ModItemGroup.List.TAB_BLOCK.idName, ModItemGroup.List.TAB_BLOCK.name);
         for (ModItems.List item : ModItems.List.values()) {
             ModTranslations.addNameTranslation(ModTranslations.ttItem, item.idName, item.name);
             ModTranslations.addDescTranslation(ModTranslations.ttItem, item.idName, item.description);
