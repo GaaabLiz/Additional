@@ -8,6 +8,6 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
 public class ModItemGroup {
-
     public static final ItemGroup CREATIVE_TAB_ITEM = CreativeTabRegistry.create(new Identifier(ModConfig.MOD_ID, "adt_tab_item"), () -> new ItemStack(Items.ACACIA_BUTTON.asItem()));
+    public static final ItemGroup CREATIVE_TAB_BLOCK = CreativeTabRegistry.create(new Identifier(ModConfig.MOD_ID, "adt_tab_block"), () -> new ItemStack(Items.ACACIA_BUTTON.asItem()));
 }

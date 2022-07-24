@@ -2,7 +2,7 @@ package it.gabliz.additional.forge;
 
 import com.mojang.logging.LogUtils;
 import dev.architectury.platform.forge.EventBuses;
-import it.gabliz.additional.AdditionalCommon;
+import it.gabliz.additional.AdditionalMod;
 import it.gabliz.additional.common.config.ModConfig;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -20,7 +20,7 @@ public class Additional {
         LOGGER.info("Start loading " + ModConfig.MOD_ID + " Mod ...");
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         EventBuses.registerModEventBus(ModConfig.MOD_ID, modBus);
-        AdditionalCommon.init();
+        AdditionalMod.init();
         IEventBus bus = EventBuses.getModEventBus(ModConfig.MOD_ID).get();
         bus.addListener(this::commonSetup);
     }

@@ -10,6 +10,7 @@ bin/
 libs/
 logs/
 .architectury-transformer/
+/assets
 
 .classpath
 .project
