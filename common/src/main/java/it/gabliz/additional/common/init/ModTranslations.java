@@ -56,9 +56,9 @@ public class ModTranslations {
         addNameTranslation(ttItemGroup, ModItemGroup.List.TAB_BLOCK.idName, ModItemGroup.List.TAB_BLOCK.name);
         for (ModItems.List item : ModItems.List.values()) {
             ModTranslations.addNameTranslation(ModTranslations.ttItem, item.idName, item.name);
-            ModTranslations.addDescTranslation(ModTranslations.ttItem, item.idName, item.description);
-            ModTranslations.addShiftTooltipTranslation(ModTranslations.ttItem, item.idName, item.shiftTooltip);
-            ModTranslations.addCtrlTooltipTranslation(ModTranslations.ttItem, item.idName, item.ctrlTooltip);
+            ModTranslations.addDescTranslation(ModTranslations.ttItem, item.idName, item.getDescription());
+            ModTranslations.addShiftTooltipTranslation(ModTranslations.ttItem, item.idName, item.getShiftTooltip());
+            ModTranslations.addCtrlTooltipTranslation(ModTranslations.ttItem, item.idName, item.getCtrlTooltip());
         }
     }
 

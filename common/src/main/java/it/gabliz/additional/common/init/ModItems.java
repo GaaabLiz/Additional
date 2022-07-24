@@ -4,6 +4,7 @@ import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import it.gabliz.additional.common.config.ModConfig;
+import it.gabliz.additional.common.helper.TextInfoProvider;
 import it.gabliz.additional.common.item.DebugItem;
 import it.gabliz.additional.common.item.ExpDropItem;
 import net.minecraft.item.Item;
@@ -14,38 +15,29 @@ import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
-
 public class ModItems {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ModConfig.MOD_ID,  Registry.ITEM_KEY);
     public static final ItemGroup TAB_ITEM = CreativeTabRegistry.create(new Identifier(ModConfig.MOD_ID, ModItemGroup.List.TAB_ITEM.idName), () -> new ItemStack(ModItems.DEBUG_ITEM.get()));
 
 
-    public enum List {
-        DEBUG_ITEM("debug_item", "DEBUG ITEM (ONLY DEV)", "This is a debug item used to test some functionality of the mod. Don try to use it!"),
-        EXP_DROP("exp_drop", "Experience drop", "A little drop of solidified experience.");
-
+    public enum List implements TextInfoProvider {
+        DEBUG_ITEM("debug_item", "DEBUG ITEM (ONLY DEV)") {
+            @Override
+            public String getDescription() {
+                return "This is a debug item used to test some functionality of the mod. Don try to use it!";
+            }
+        },
+        EXP_DROP("exp_drop", "Experience drop") {
+            @Override
+            public String getDescription() {
+                return "A little drop of solidified experience.";
+            }
+        };
         @NotNull public final String idName;
         @NotNull public final String name;
         @NotNull public final Category category;
-        @Nullable public String description = null;
-        @Nullable public String shiftTooltip = null;
-        @Nullable public final String ctrlTooltip = null;
         List(@NotNull String idName, @NotNull String name) {this.idName = idName;this.name = name;this.category = Category.CRAFTING_ITEM;}
-        List(@NotNull String idName, @NotNull String name, @NotNull String description) {
-            this.idName = idName;
-            this.name = name;
-            this.category = Category.CRAFTING_ITEM;
-            this.description = description;
-        }
-        List(@NotNull String idName, @NotNull String name, @NotNull String description, @NotNull String shiftTooltip) {
-            this.idName = idName;
-            this.name = name;
-            this.category = Category.CRAFTING_ITEM;
-            this.description = description;
-            this.shiftTooltip = shiftTooltip;
-        }
     }
     public enum Category { CRAFTING_ITEM, SEED }
 
